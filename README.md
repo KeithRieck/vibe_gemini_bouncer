@@ -2,7 +2,7 @@ Hosted at:  https://keithrieck.github.io/vibe_gemini_bouncer/index.html
 
 # vibe_gemini_bouncer
 
-This trivial project was developed with Google CLI.
+This trivial project was developed with [Gemini CLI](https://geminicli.com/).
 
 In a previous project I created specification in the file [`spec-v001.md`](spec-v001.md), using two agent skills:  [`grill-me`](.codex/skills/grill-me/SKILL.md) and [`spec-writer`](.codex/skills/spec-writer/SKILL.md).  When developing graphics programs, I use my [`phaser-game`](.codex/skills/phaser-game/SKILL.md) to set up the [Phaser](https://phaser.io/) game stuff.
 
@@ -16,3 +16,6 @@ In a previous project I created specification in the file [`spec-v001.md`](spec-
   * Better, but the circles do not move. 
 3. I should figure out the problem myself, but instead, I just tell Gemini to fix it.  Next prompt:
   * `None of the circles are moving.  Make them move.`
+  * Now the circles move, but Gemini has added little lines attached to each circle showing the direction of travel.   Interesting, but I didn't ask for that.
+4. Next prompt:
+  * `Don't draw the velocity vector lines.`

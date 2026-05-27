@@ -16,7 +16,7 @@ const config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 0 },
-            debug: true
+            debug: false
         }
     },
     fps: {
@@ -31,11 +31,5 @@ const config = {
 };
 
 window.addEventListener('load', () => {
-    console.log('Window loaded, starting Phaser...');
-    try {
-        const game = new Phaser.Game(config);
-        console.log('Phaser Game instance created:', game);
-    } catch (e) {
-        console.error('Failed to create Phaser Game:', e);
-    }
+    new Phaser.Game(config);
 });

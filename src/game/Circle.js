@@ -32,8 +32,6 @@ export default class Circle extends Phaser.Physics.Arcade.Sprite {
                 }
             });
         }
-        
-        console.log(`Circle created at (${x}, ${y})`);
     }
 
     update() {
@@ -46,7 +44,6 @@ export default class Circle extends Phaser.Physics.Arcade.Sprite {
             // Safety: Re-kick if it somehow stopped
             const angle = Phaser.Math.DegToRad(Phaser.Math.Between(0, 360));
             this.body.setVelocity(Math.cos(angle) * 200, Math.sin(angle) * 200);
-            console.log('Circle was stopped, re-kicking.');
         } else if (Math.abs(speed - 200) > 0.1) {
             const factor = 200 / speed;
             this.body.setVelocity(this.body.velocity.x * factor, this.body.velocity.y * factor);
