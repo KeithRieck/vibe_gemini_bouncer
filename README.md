@@ -19,3 +19,4 @@ In a previous project I created specification in the file [`spec-v001.md`](spec-
   * Now the circles move, but Gemini has added little lines attached to each circle showing the direction of travel.   Interesting, but I didn't ask for that.
 4. Next prompt:
   * `Don't draw the velocity vector lines.`
+5. Rather than review the code myself, I ask ChatGPT Codex to review it.  It finds a problem where the circles get updated twice.  Rather than fix it myself, I ask Codex to just take care of it.

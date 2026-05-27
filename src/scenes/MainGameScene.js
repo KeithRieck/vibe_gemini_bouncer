@@ -61,13 +61,6 @@ export default class MainGameScene extends Phaser.Scene {
         this.scale.on('resize', this.resize, this);
     }
 
-    update() {
-        // Explicitly update children to ensure speed normalization
-        if (this.circles) {
-            this.circles.getChildren().forEach(circle => circle.update());
-        }
-    }
-
     resize(gameSize) {
         const width = gameSize.width;
         const height = gameSize.height;
