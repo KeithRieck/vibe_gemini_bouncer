@@ -20,3 +20,7 @@ In a previous project I created specification in the file [`spec-v001.md`](spec-
 4. Next prompt:
   * `Don't draw the velocity vector lines.`
 5. Rather than review the code myself, I ask ChatGPT Codex to review it.  It finds a problem where the circles get updated twice.  Rather than fix it myself, I ask Codex to just take care of it.
+6. Finally, I read the code myself.  Lots of good code that makes sense, and a few odd things that don't.
+  * The `Circle` class has some code inside update that would restart a circle if it ever had a speed of zero.  Why?  I guess this might happen if two circles collided perfectly and resulted in no movement.  Maybe that would violate my specification that the circles should keep moving.  This seems like overkill;  I'd rather have the physics behave normally, even if we get zero speed.
+  * The `Boot` scene creates a logo image out of nothing so it can display in the `PreloaderScene`.  I use the debugger to stop the app before the `MainGameScene` to see what it looks like.  There is no image, and even if it did exist the main scene loads so fast that it wouldn't matter.   It's true that I asked for a loader logo, but there's no point in this.
+  * There's also a progress-bar set up in the `PreloaderScene`.  Again, I asked for this in the phaser-game skill, but it isn't necessary.  Now there's nothing in `PreloaderScene` so I just delete it.

@@ -40,11 +40,7 @@ export default class Circle extends Phaser.Physics.Arcade.Sprite {
         // Maintain uniform speed at 200 pixels/second
         const speed = Math.sqrt(this.body.velocity.x ** 2 + this.body.velocity.y ** 2);
         
-        if (speed === 0) {
-            // Safety: Re-kick if it somehow stopped
-            const angle = Phaser.Math.DegToRad(Phaser.Math.Between(0, 360));
-            this.body.setVelocity(Math.cos(angle) * 200, Math.sin(angle) * 200);
-        } else if (Math.abs(speed - 200) > 0.1) {
+        if (Math.abs(speed - 200) > 0.1) {
             const factor = 200 / speed;
             this.body.setVelocity(this.body.velocity.x * factor, this.body.velocity.y * factor);
         }

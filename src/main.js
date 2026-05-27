@@ -3,7 +3,6 @@
  */
 
 import BootScene from './scenes/BootScene.js';
-import PreloaderScene from './scenes/PreloaderScene.js';
 import MainGameScene from './scenes/MainGameScene.js';
 
 const config = {
@@ -27,7 +26,7 @@ const config = {
         mode: Phaser.Scale.RESIZE,
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [BootScene, PreloaderScene, MainGameScene]
+    scene: [BootScene, MainGameScene]
 };
 
 window.addEventListener('load', () => {
