@@ -9,5 +9,7 @@ In a previous project I created specification in the file [`spec-v001.md`](spec-
 ## First Iteration
 
 1. First Prompt:
-  `Create a project in ES2020 and using the Phaser game library (version 4) that displays 64 circles that bounce around the screen.  Make use of the phaser-game skill.  Use the file spec-v001.md as a design specification.
-  
+  * `Create a project in ES2020 and using the Phaser game library (version 4) that displays 64 circles that bounce around the screen.  Make use of the phaser-game skill.  Use the file spec-v001.md as a design specification.`
+  * Gemini creates the project, but puts all the code into one file:  `main.js`
+2. Second prompt:
+  * `Split up main.js into separate files as specified in the phaser-game skill.`
