@@ -13,3 +13,6 @@ In a previous project I created specification in the file [`spec-v001.md`](spec-
   * Gemini creates the project, but puts all the code into one file:  `main.js`
 2. Second prompt:
   * `Split up main.js into separate files as specified in the phaser-game skill.`
+  * Better, but the circles do not move. 
+3. I should figure out the problem myself, but instead, I just tell Gemini to fix it.  Next prompt:
+  * `None of the circles are moving.  Make them move.`

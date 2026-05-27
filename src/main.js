@@ -16,8 +16,12 @@ const config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 0 },
-            debug: false
+            debug: true
         }
+    },
+    fps: {
+        target: 60,
+        forceSetTimeOut: true
     },
     scale: {
         mode: Phaser.Scale.RESIZE,
@@ -27,5 +31,11 @@ const config = {
 };
 
 window.addEventListener('load', () => {
-    new Phaser.Game(config);
+    console.log('Window loaded, starting Phaser...');
+    try {
+        const game = new Phaser.Game(config);
+        console.log('Phaser Game instance created:', game);
+    } catch (e) {
+        console.error('Failed to create Phaser Game:', e);
+    }
 });

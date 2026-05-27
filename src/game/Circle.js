@@ -18,23 +18,38 @@ export default class Circle extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
 
-        this.setCircle(25);
-        this.setBounce(1);
-        this.setCollideWorldBounds(true);
-        this.body.onWorldBounds = true;
+        if (this.body) {
+            this.body.setCircle(25);
+            this.body.setBounce(1, 1);
+            this.body.setCollideWorldBounds(true);
+            this.body.onWorldBounds = true;
 
-        // Set initial velocity
-        const angle = Phaser.Math.Between(0, 360);
-        scene.physics.velocityFromAngle(angle, 200, this.body.velocity);
+            // Set initial velocity with a tiny delay to ensure body is ready
+            scene.time.delayedCall(1, () => {
+                if (this.body) {
+                    const angle = Phaser.Math.DegToRad(Phaser.Math.Between(0, 360));
+                    this.body.setVelocity(Math.cos(angle) * 200, Math.sin(angle) * 200);
+                }
+            });
+        }
+        
+        console.log(`Circle created at (${x}, ${y})`);
     }
 
     update() {
+        if (!this.body) return;
+        
         // Maintain uniform speed at 200 pixels/second
         const speed = Math.sqrt(this.body.velocity.x ** 2 + this.body.velocity.y ** 2);
-        if (Math.abs(speed - 200) > 0.1 && speed > 0) {
+        
+        if (speed === 0) {
+            // Safety: Re-kick if it somehow stopped
+            const angle = Phaser.Math.DegToRad(Phaser.Math.Between(0, 360));
+            this.body.setVelocity(Math.cos(angle) * 200, Math.sin(angle) * 200);
+            console.log('Circle was stopped, re-kicking.');
+        } else if (Math.abs(speed - 200) > 0.1) {
             const factor = 200 / speed;
-            this.body.velocity.x *= factor;
-            this.body.velocity.y *= factor;
+            this.body.setVelocity(this.body.velocity.x * factor, this.body.velocity.y * factor);
         }
     }
 }
